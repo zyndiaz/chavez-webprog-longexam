@@ -54,4 +54,7 @@ export const api = {
 
 export { API_URL };
 
-export const resolveImageUrl = (image) => image?.startsWith("/uploads/") ? `${API_URL.replace(/\/api$/, "")}${image}` : image;
+export const resolveImageUrl = (image) =>
+  image?.startsWith("/api/uploads/") || image?.startsWith("/uploads/")
+    ? `${API_URL.replace(/\/api$/, "")}${image}`
+    : image;
